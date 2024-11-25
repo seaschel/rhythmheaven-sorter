@@ -45,19 +45,6 @@ const TITLE = deepFreeze({
 	MEGAXTRA: { name: "Rhythm Heaven Megamix (3DS)", image: "9Bgvih5.jpg", shortName: "Rhythm Heaven Megamix", abbrev: "MEGAXTRA", },
 });
 
-// Not included in main filters, but used for song data display
-const EXTRA_TITLES = deepFreeze({
-	BAiJR: { image: "w9FZqDn.jpg", shortName: "Bohemian Archive in Japanese Red", abbrev: "BAiJR", },
-	EaLND: { image: "YfoRCHQ.jpg", shortName: "Eastern and Little Nature Deity", abbrev: "EaLND", },
-	PMiSS: { image: "mu8UUhH.jpg", shortName: "Perfect Memento in Strict Sense", abbrev: "PMiSS", },
-	SaBND: { image: "MGwqCJo.jpg", shortName: "Strange and Bright Nature Deity", abbrev: "SaBND", },
-	SSiB: { image: "p8GtjLf.jpg", shortName: "Silent Sinner in Blue", abbrev: "SSiB", },
-	GoM: { image: "FI9IsdC.jpg", shortName: "The Grimoire of Marisa", abbrev: "GoM", },
-	OSP: { image: "Kw2uOqV.jpg", shortName: "Oriental Sacred Place", abbrev: "OSP", },
-	FS: { image: "fs.jpg", shortName: "Forbidden Scrollery", abbrev: "FS", },
-	TO: { image: "daisakusen.png", shortName: "RhythmGames Otohanabi", abbrev: "TO", },
-});
-
 const getTitleData = function (songTitleDataObj) {
 	// We'll have to handle individual song overrides either way (mostly going to be coming from old saved data)
 
@@ -123,7 +110,9 @@ const LEGACY_TRACK_TITLE_NAME = 4;
 const LEGACY_TRACK_TITLE_ABBREV = 5;
 
 var ary_SongData = [
-	//The Highly Responsive to Prayers / Akyuu's Untouched Score vol. 5
+	["SONGTITLE",	new Set([TITLE.GBA]), { title: "GBA", }, "dnzeZjSuHgQ", "Subtitle", ORIGINAL_TRACK, BOSS_THEME],
+	
+	["SONGTITLE",					new Set([TITLE.GBA, TITLE.DS]), { title: "GBA", }, "IWcJtankEr4", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
 	["A Sacred Lot",					new Set([TITLE.GBA, TITLE.AUS5]), { title: "GBA", }, "IWcJtankEr4", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
 	["Eternal Shrine Maiden",			new Set([TITLE.GBA, TITLE.AUS5]), { title: "GBA", }, "LmN9btd7Ttg", "Stages 1-4/Jigoku Route 16-19", ORIGINAL_TRACK, STAGE_THEME],
 	["The Positive and Negative",		new Set([TITLE.GBA, TITLE.AUS5]), { title: "GBA", }, "QJYAF2SZWTk", "SinGyoku's theme", ORIGINAL_TRACK, BOSS_THEME],
