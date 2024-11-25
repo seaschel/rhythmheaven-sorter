@@ -2,7 +2,7 @@
 // 2009/1/27 Modified by K-Factory@migiwa
 // 2014/6/29 Modified by nkeronkow
 // 2018/11/26 Added to relick's github, changes tracked there
-// github.com/relick/touhou-song-sorter
+// github.com/relick/RhythmHeaven-song-sorter
 
 // *****************************************************************************
 "use strict";
@@ -47,7 +47,7 @@ const EXTRA_TITLES = deepFreeze({
 	GoM: { image: "FI9IsdC.jpg", shortName: "The Grimoire of Marisa", abbrev: "GoM", },
 	OSP: { image: "Kw2uOqV.jpg", shortName: "Oriental Sacred Place", abbrev: "OSP", },
 	FS: { image: "fs.jpg", shortName: "Forbidden Scrollery", abbrev: "FS", },
-	TO: { image: "daisakusen.png", shortName: "Touhou Otohanabi", abbrev: "TO", },
+	TO: { image: "daisakusen.png", shortName: "RhythmHeaven Otohanabi", abbrev: "TO", },
 });
 
 const getTitleData = function (songTitleDataObj) {
@@ -75,14 +75,7 @@ const getTitleData = function (songTitleDataObj) {
 }
 
 const CATEGORY = deepFreeze({
-	Touhou: { name: "東方 - Touhou", titles: ["GBA", "DS", "FVR", "MGMX", "MS", "EoSD", "PCB", "IaMP",
-		"IN", "PoFV", "StB", "MoF", "SWR", "SA", "UFO", "Soku", "DS",
-		"GFW", "TD", "HM", "DDC", "ISC", "ULiL", "LoLK", "AoCF", "HSiFS",
-		"VD", "WBaWC", "SFW", "UM", "HBM", "UDoALG"], },
-	Hifuu: { name: "秘封倶楽部 - Secret Sealing Club", titles: ["DiPP", "GFC", "CoSD", "R53m", "MA", "UFMJ", "TGA", "NToJ", "DLFR", "DBOA", "RCS"], },
-	Seihou: { name: "西方 - Seihou", titles: ["SG", "KG"], },
-	Akyu: { name: "幺樂団の歴史 - Akyu's Untouched Score", titles: ["AUS1", "AUS2", "AUS3", "AUS4", "AUS5"], },
-	Other: { name: "Other", titles: ["BONUS"], },
+	RhythmHeaven: { name: "Rhythm Heaven", titles: ["GBA", "DS", "FVR", "MGMX"], },
 });
 
 // Number of columns in the selection list.
@@ -479,7 +472,7 @@ var ary_SongData = [
 	["Energy Daybreak ~ Future Dream...",			new Set([TITLE.SA]), { title: "SA", }, "Ruy9z2NsAmo", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
 	//["Player's Score",							new Set([TITLE.MoF, TITLE.SA, TITLE.UFO]), { title: "MoF", }, "7jrqZShXtZw", "", ORIGINAL_TRACK, OTHER_THEME],
 	
-	//Touhou Hisoutensoku
+	//RhythmHeaven Hisoutensoku
 	["Did You See that Shadow?",									new Set([TITLE.Soku]), { title: "Soku", }, "CSluXtLcCyM", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
 	["Forgathering Dream",											new Set([TITLE.Soku]), { title: "Soku", }, "-2x22OF5Ukg", "VS Select", ARRANGED_TRACK, OTHER_THEME],
 	["The Legendary Titan",											new Set([TITLE.Soku]), { title: "Soku", }, "WOkTovDr2bg", "Pre-Battle", ORIGINAL_TRACK, OTHER_THEME],
@@ -777,7 +770,7 @@ var ary_SongData = [
 	["Humans and Youkai Traversing the Canal",		new Set([TITLE.BONUS]), { title: "BONUS", extra: "FS", }, "m3S9Nsd1puU", "Track 2", ARRANGED_TRACK, OTHER_THEME],
 	["The Rabbit Has Landed",						new Set([TITLE.BONUS]), { title: "BONUS", extra: "FS", }, "mxlnkzshWCU", "Track 3", ARRANGED_TRACK, OTHER_THEME],
 	//Daisakusen
-	["Every Day is Scarlet ~ Folksy Touhou days.",	new Set([TITLE.BONUS]), { title: "BONUS", extra: "TO", }, "A3g3MgxcVOE", "Track 1", ARRANGED_TRACK, OTHER_THEME],
+	["Every Day is Scarlet ~ Folksy RhythmHeaven days.",	new Set([TITLE.BONUS]), { title: "BONUS", extra: "TO", }, "A3g3MgxcVOE", "Track 1", ARRANGED_TRACK, OTHER_THEME],
 	
 	//Urban Legend in Limbo
 	["Heart-Stirring Urban Legends",						new Set([TITLE.ULiL]), { title: "ULiL", }, "PWhN1akadiQ", "Title/Menu Screen", ORIGINAL_TRACK, OTHER_THEME],
@@ -966,7 +959,7 @@ var ary_SongData = [
 	["Returning Home from the Underground",					new Set([TITLE.WBaWC]), { title: "WBaWC", }, "zXiC7YFQngk", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
 	//["Player's Score",									new Set([TITLE.GFW, TITLE.TD, TITLE.DDC, TITLE.LoLK, TITLE.HSiFS, TITLE.WBaWC, TITLE.UM]), { title: "GFW", }, "t3hBNsqiwL8", "", ORIGINAL_TRACK, OTHER_THEME],
 	
-	//Touhou Gouyoku Ibun
+	//RhythmHeaven Gouyoku Ibun
 	["Submerged Hell of Sunken Sorrow",							new Set([TITLE.SFW]), { title: "SFW", }, "DfU31yb8eNo", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
 	["Eastern Strange Tale of Avarice",							new Set([TITLE.SFW]), { title: "SFW", }, "3ScV3OKt0Yk", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
 	["Laws of Heaven, Desires of Man",							new Set([TITLE.SFW]), { title: "SFW", }, "DW--G-vGJgY", "Ending", ORIGINAL_TRACK, OTHER_THEME],
