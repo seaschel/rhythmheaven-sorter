@@ -31,10 +31,10 @@ const deepFreeze = obj => {
 // abbrev: abbreviated form (also used during the sort and in the final result table)
 // selectionName: used in the initial option table for selecting which titles to sort over
 const TITLE = deepFreeze({
-	GBA: { name: "1: Rhythm Tengoku (GBA)", image: "fZ2BDUV.jpg", shortName: "Highly Responsive to Prayers", abbrev: "GBA", },
-	DS: { name: "2: Rhythm Heaven (DS)", image: "XHi6YmD.jpg", shortName: "Story of Eastern Wonderland", abbrev: "DS", },
-	FVR: { name: "3: Rhythm Heaven Fever (Wii)", image: "Imp5ltX.jpg", shortName: "Phantasmagoria of Dim.Dream", abbrev: "FVR", },
-	MGMX: { name: "4: Rhythm Heaven Megamix (3DS)", image: "9Bgvih5.jpg", shortName: "Lotus Land Story", abbrev: "MGMX", },
+	GBA: { name: "Rhythm Tengoku (GBA)", image: "fZ2BDUV.jpg", shortName: "Highly Responsive to Prayers", abbrev: "GBA", },
+	DS: { name: "Rhythm Heaven (DS)", image: "XHi6YmD.jpg", shortName: "Story of Eastern Wonderland", abbrev: "DS", },
+	FVR: { name: "Rhythm Heaven Fever (Wii)", image: "Imp5ltX.jpg", shortName: "Phantasmagoria of Dim.Dream", abbrev: "FVR", },
+	MGMX: { name: "Rhythm Heaven Megamix (3DS)", image: "9Bgvih5.jpg", shortName: "Lotus Land Story", abbrev: "MGMX", },
 });
 
 // Not included in main filters, but used for song data display
