@@ -45,6 +45,19 @@ const TITLE = deepFreeze({
 	MEGAXTRA: { name: "Rhythm Heaven Megamix (3DS)", image: "9Bgvih5.jpg", shortName: "Rhythm Heaven Megamix", abbrev: "MEGAXTRA", },
 });
 
+// Not included in main filters, but used for song data display
+const EXTRA_TITLES = deepFreeze({
+	BAiJR: { image: "w9FZqDn.jpg", shortName: "Bohemian Archive in Japanese Red", abbrev: "BAiJR", },
+	EaLND: { image: "YfoRCHQ.jpg", shortName: "Eastern and Little Nature Deity", abbrev: "EaLND", },
+	PMiSS: { image: "mu8UUhH.jpg", shortName: "Perfect Memento in Strict Sense", abbrev: "PMiSS", },
+	SaBND: { image: "MGwqCJo.jpg", shortName: "Strange and Bright Nature Deity", abbrev: "SaBND", },
+	SSiB: { image: "p8GtjLf.jpg", shortName: "Silent Sinner in Blue", abbrev: "SSiB", },
+	GoM: { image: "FI9IsdC.jpg", shortName: "The Grimoire of Marisa", abbrev: "GoM", },
+	OSP: { image: "Kw2uOqV.jpg", shortName: "Oriental Sacred Place", abbrev: "OSP", },
+	FS: { image: "fs.jpg", shortName: "Forbidden Scrollery", abbrev: "FS", },
+	TO: { image: "daisakusen.png", shortName: "Touhou Otohanabi", abbrev: "TO", },
+});
+
 const getTitleData = function (songTitleDataObj) {
 	// We'll have to handle individual song overrides either way (mostly going to be coming from old saved data)
 
@@ -91,7 +104,7 @@ const TRACK_YOUTUBE_ID = 3;
 // 4: Description of track
 const TRACK_DESCRIPTION = 4;
 // 5: If the *exact* same track appears in a later game then it should use [1] to specify rather than setting as arrangement.
-const TRACK_IS_ARRANGED = 5;
+const TRACK_IS_ARRANGEMENT = 5;
 	const ORIGINAL_GAME = 0;
 	const REUSED_GAME = 1;
 // 6: Track type, Album tracks should all be marked as OTHER_THEME.
@@ -110,6 +123,6 @@ const LEGACY_TRACK_TITLE_NAME = 4;
 const LEGACY_TRACK_TITLE_ABBREV = 5;
 
 var ary_SongData = [
-	["NAME",	new Set([TITLE.GBA, TITLE.DS]), { title: "GBA", }, "IWcJtankEr4", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
-	["NAME2",	new Set([TITLE.GBA, TITLE.DS]), { title: "GBA", }, "IWcJtankEr4", "Title Screen2", ORIGINAL_TRACK, OTHER_THEME],
+	["Flockstep", new Set([TITLE.FEVER, TITLE.MEGAMIX]), { title: "FEVER", "MEGAMIX",}, "3B207i_YzE0", "Stage 5-4 on Wii" ORIGINAL_GAME, RhythmGames],
+	["Moai Doo-Wop", new Set([TITLE.DS]), { title: "DS",}, "3B207i_YzE0", "Stage 2-4 on DS" ORIGINAL_GAME, RhythmGames],
 ];
