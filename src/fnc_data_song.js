@@ -2,7 +2,7 @@
 // 2009/1/27 Modified by K-Factory@migiwa
 // 2014/6/29 Modified by nkeronkow
 // 2018/11/26 Added to relick's github, changes tracked there
-// github.com/relick/RhythmHeaven-song-sorter
+// github.com/relick/RhythmGames-song-sorter
 
 // *****************************************************************************
 "use strict";
@@ -31,10 +31,18 @@ const deepFreeze = obj => {
 // abbrev: abbreviated form (also used during the sort and in the final result table)
 // selectionName: used in the initial option table for selecting which titles to sort over
 const TITLE = deepFreeze({
-	GBA: { name: "Rhythm Tengoku (GBA)", image: "fZ2BDUV.jpg", shortName: "Highly Responsive to Prayers", abbrev: "GBA", },
-	DS: { name: "Rhythm Heaven (DS)", image: "XHi6YmD.jpg", shortName: "Story of Eastern Wonderland", abbrev: "DS", },
-	FVR: { name: "Rhythm Heaven Fever (Wii)", image: "Imp5ltX.jpg", shortName: "Phantasmagoria of Dim.Dream", abbrev: "FVR", },
-	MGMX: { name: "Rhythm Heaven Megamix (3DS)", image: "9Bgvih5.jpg", shortName: "Lotus Land Story", abbrev: "MGMX", },
+	GBA: { name: "Rhythm Tengoku (GBA)", image: "fZ2BDUV.jpg", shortName: "Rhythm Tengoku", abbrev: "GBA", },
+	GBAREMIX: { name: "Rhythm Heaven (GBA)", image: "XHi6YmD.jpg", shortName: "Rhythm Tengoku", abbrev: "GBAREMIX", },
+	GBAXTRA: { name: "Rhythm Heaven (GBA)", image: "XHi6YmD.jpg", shortName: "Rhythm Tengoku", abbrev: "GBAXTRA", },
+	DS: { name: "Rhythm Heaven (DS)", image: "XHi6YmD.jpg", shortName: "Rhythm Heaven", abbrev: "DS", },
+	DSREMIX: { name: "Rhythm Heaven (DS)", image: "XHi6YmD.jpg", shortName: "Rhythm Heaven", abbrev: "DSREMIX", },
+	DSXTRA: { name: "Rhythm Heaven (DS)", image: "XHi6YmD.jpg", shortName: "Rhythm Heaven", abbrev: "DSXTRA", },
+	FEVER: { name: "Rhythm Heaven Fever (Wii)", image: "Imp5ltX.jpg", shortName: "Rhythm Heaven Fever", abbrev: "FEVER", },
+	FEVEREMIX: { name: "Rhythm Heaven Fever (Wii)", image: "Imp5ltX.jpg", shortName: "Rhythm Heaven Fever", abbrev: "FEVEREMIX", },
+	FEVERXTRA: { name: "Rhythm Heaven Fever (Wii)", image: "Imp5ltX.jpg", shortName: "Rhythm Heaven Fever", abbrev: "FEVERXTRA", },
+	MEGAMIX: { name: "Rhythm Heaven Megamix (3DS)", image: "9Bgvih5.jpg", shortName: "Rhythm Heaven Megamix", abbrev: "MEGAMIX", },
+	MEGAREMIX: { name: "Rhythm Heaven Megamix (3DS)", image: "9Bgvih5.jpg", shortName: "Rhythm Heaven Megamix", abbrev: "MEGAREMIX", },
+	MEGAXTRA: { name: "Rhythm Heaven Megamix (3DS)", image: "9Bgvih5.jpg", shortName: "Rhythm Heaven Megamix", abbrev: "MEGAXTRA", },
 });
 
 // Not included in main filters, but used for song data display
@@ -47,7 +55,7 @@ const EXTRA_TITLES = deepFreeze({
 	GoM: { image: "FI9IsdC.jpg", shortName: "The Grimoire of Marisa", abbrev: "GoM", },
 	OSP: { image: "Kw2uOqV.jpg", shortName: "Oriental Sacred Place", abbrev: "OSP", },
 	FS: { image: "fs.jpg", shortName: "Forbidden Scrollery", abbrev: "FS", },
-	TO: { image: "daisakusen.png", shortName: "RhythmHeaven Otohanabi", abbrev: "TO", },
+	TO: { image: "daisakusen.png", shortName: "RhythmGames Otohanabi", abbrev: "TO", },
 });
 
 const getTitleData = function (songTitleDataObj) {
@@ -75,7 +83,9 @@ const getTitleData = function (songTitleDataObj) {
 }
 
 const CATEGORY = deepFreeze({
-	RhythmHeaven: { name: "Rhythm Heaven", titles: ["GBA", "DS", "FVR", "MGMX"], },
+	RhythmGames: { name: "Rhythm Games", titles: ["GBA", "DS", "FEVER", "MEGAMIX"], },
+	Remixes: { name: "Remixes", titles: ["GBAREMIX", "DSREMIX", "FEVEREMIX", "MEGAREMIX"], },
+	Extra: { name: "Extra Games", titles: ["GBAXTRA", "DSXTRA", "FEVERXTRA", "MEGAXTRA"], }
 });
 
 // Number of columns in the selection list.
@@ -155,52 +165,52 @@ var ary_SongData = [
 	["Demon-Sealing Finale",									new Set([TITLE.AUS3]), { title: "AUS3", }, "E-iw2aR-R1Y", "Track 18", ORIGINAL_TRACK, OTHER_THEME],
 	
 	//Phantasmagoria of Dim.Dream / Akyuu's Untouched Score vol. 4
-	["A Dream Transcending Space-Time",			new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "OQ9Q5Kb_T1Y", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
-	["Selection",								new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "_9bzLaz55tM", "Character Selection", ORIGINAL_TRACK, OTHER_THEME],
-	["Eastern Mystical Love Consultation",		new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "cwPUjQmTVRY", "Reimu Hakurei's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Reincarnation",							new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "J8p2HGRZfII", "Mima's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Dim. Dream",								new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "BBtSp1EZdI8", "Marisa Kirisame's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Tabula rasa ~ The Empty Girl",			new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "SxpZFNYSrGI", "Ellen's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Maniacal Princess",						new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "3ZyjaO9p0wQ", "Kotohime's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Vanishing Dream ~ Lost Dream",			new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "vm4PvG7RGwU", "Kana Anaberal's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Visionary Game ~ Dream War",				new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "M8XGQF34-9A", "Rikako Asakura's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Decisive Magic Battle! ~ Fight it out!",	new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "Fj-hhCHC8hM", "Round 7 CPU Battle theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Disunified Field Theory of Magic",		new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "mEQgIZ-enoA", "Midboss Demo theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Sailor of Time",							new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "ygB_MKgqXdg", "Chiyuri Kitashirakawa's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Love of Magical Chimes",					new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "nS_RPPbBRpk", "Yumemi Demo theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Strawberry Crisis!!",						new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "UTLqnME57vo", "Yumemi Okazaki's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Dream of Eternity",						new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "zbFV-h0ba_I", "Common Ending", ORIGINAL_TRACK, OTHER_THEME],
-	["Eastern Blue Sky",						new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "Cjfi0Y_grlo", "Daytime Ending", ORIGINAL_TRACK, OTHER_THEME],
-	["Eternal Full Moon",						new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "s2DEdCtb8jo", "Nighttime Ending", ORIGINAL_TRACK, OTHER_THEME],
-	["Maple Dream...",							new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "yBb4sr2Wrmc", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
-	["Ghostly Person's Holiday",				new Set([TITLE.FVR, TITLE.AUS4]), { title: "FVR", }, "jBt_eVHkoAk", "Name Registration", ORIGINAL_TRACK, OTHER_THEME],
+	["A Dream Transcending Space-Time",			new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "OQ9Q5Kb_T1Y", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
+	["Selection",								new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "_9bzLaz55tM", "Character Selection", ORIGINAL_TRACK, OTHER_THEME],
+	["Eastern Mystical Love Consultation",		new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "cwPUjQmTVRY", "Reimu Hakurei's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Reincarnation",							new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "J8p2HGRZfII", "Mima's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Dim. Dream",								new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "BBtSp1EZdI8", "Marisa Kirisame's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Tabula rasa ~ The Empty Girl",			new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "SxpZFNYSrGI", "Ellen's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Maniacal Princess",						new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "3ZyjaO9p0wQ", "Kotohime's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Vanishing Dream ~ Lost Dream",			new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "vm4PvG7RGwU", "Kana Anaberal's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Visionary Game ~ Dream War",				new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "M8XGQF34-9A", "Rikako Asakura's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Decisive Magic Battle! ~ Fight it out!",	new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "Fj-hhCHC8hM", "Round 7 CPU Battle theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Disunified Field Theory of Magic",		new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "mEQgIZ-enoA", "Midboss Demo theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Sailor of Time",							new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "ygB_MKgqXdg", "Chiyuri Kitashirakawa's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Love of Magical Chimes",					new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "nS_RPPbBRpk", "Yumemi Demo theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Strawberry Crisis!!",						new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "UTLqnME57vo", "Yumemi Okazaki's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Dream of Eternity",						new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "zbFV-h0ba_I", "Common Ending", ORIGINAL_TRACK, OTHER_THEME],
+	["Eastern Blue Sky",						new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "Cjfi0Y_grlo", "Daytime Ending", ORIGINAL_TRACK, OTHER_THEME],
+	["Eternal Full Moon",						new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "s2DEdCtb8jo", "Nighttime Ending", ORIGINAL_TRACK, OTHER_THEME],
+	["Maple Dream...",							new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "yBb4sr2Wrmc", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
+	["Ghostly Person's Holiday",				new Set([TITLE.FEVER, TITLE.AUS4]), { title: "FEVER", }, "jBt_eVHkoAk", "Name Registration", ORIGINAL_TRACK, OTHER_THEME],
 	["Winds of Time",							new Set([TITLE.AUS4]), { title: "AUS4", }, "lEbHy9Be0Qo", "Track 22 (Unused theme)", ORIGINAL_TRACK, OTHER_THEME],
 	["Starbow Dream",							new Set([TITLE.AUS4]), { title: "AUS4", }, "vtjrcQMLgC4", "Track 23 (Unused theme)", ORIGINAL_TRACK, OTHER_THEME],
 	["Phantasmagoria",							new Set([TITLE.AUS4]), { title: "AUS4", }, "WPh5xHYzm40", "Track 24 (Unused theme)", ORIGINAL_TRACK, OTHER_THEME],
 	
 	//Lotus Land Story / Akyuu's Untouched Score vol. 1
-	["Gensokyo ~ Lotus Land Story",						new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "ZI6ctU6xOlI", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
-	["Witching Dream",									new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "2iVplhDGeNs", "Reimu's Stage 1", ORIGINAL_TRACK, STAGE_THEME],
-	["Selene's light",									new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "MrjQ_l_KGiI", "Marisa's Stage 1", ORIGINAL_TRACK, STAGE_THEME],
-	["Decoration Battle ~ Decoration Battle",			new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "ABiZU-VYCKo", "Orange's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Break the Sabbath",								new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "ACpj8Ggoyss", "Stage 2", ORIGINAL_TRACK, STAGE_THEME],
-	["Scarlet Symphony ~ Scarlet Phoneme",				new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "kQqp-WqVHyA", "Kurumi's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Bad Apple!!",										new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "3kXx6f7qaa8", "Stage 3", ORIGINAL_TRACK, STAGE_THEME],
-	["Spirit Battle ~ Perdition crisis",				new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "0MrCXNJDfGw", "Elly's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Alice Maestra",									new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "rS6JkYfgeQs", "Stage 4", ORIGINAL_TRACK, STAGE_THEME],
-	["Maiden's Capriccio' ~ Capriccio",					new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "IdAyCWh0238", "Reimu's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Vessel of Stars ~ Casket of Star",				new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "zLzTvn4U014", "Marisa's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Lotus Love",										new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "7FZUFe80v7Q", "Stage 5", ORIGINAL_TRACK, STAGE_THEME],
-	["Sleeping Terror ~ Sleeping Terror",				new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "llO4PINy2e8", "Yuuka's 1st theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Dream Land",										new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "4_vq5KOjgdw", "Final Stage", ORIGINAL_TRACK, STAGE_THEME],
-	["Faint Dream ~ Inanimate Dream",					new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "C4gaWY5THh4", "Yuuka's 2nd theme", ORIGINAL_TRACK, BOSS_THEME],
-	["The Inevitably Forbidden Game",					new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "LDgUA5kh8H0", "Extra Stage", ORIGINAL_TRACK, STAGE_THEME],
-	["Illusion of a Maid ~ Icemilk Magic",				new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "Fluu5GOfy68", "Mugetsu's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Cute Devil ~ Innocence",							new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "yaGqzG2Ydro", "Gengetsu's theme", ORIGINAL_TRACK, BOSS_THEME],
-	["Days",											new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "OFlOGKYCaUQ", "Bad Ending", ORIGINAL_TRACK, OTHER_THEME],
-	["Peaceful",										new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "ukvQjvb2_fE", "Good Ending", ORIGINAL_TRACK, OTHER_THEME],
-	["Arcadian Dream",									new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "Eoo-W-wWHUQ", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
-	["Those Who Live in Illusions",						new Set([TITLE.MGMX, TITLE.AUS1]), { title: "MGMX", }, "Cq3B3M5PoZk", "Name Registration", ORIGINAL_TRACK, OTHER_THEME],
+	["Gensokyo ~ Lotus Land Story",						new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "ZI6ctU6xOlI", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
+	["Witching Dream",									new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "2iVplhDGeNs", "Reimu's Stage 1", ORIGINAL_TRACK, STAGE_THEME],
+	["Selene's light",									new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "MrjQ_l_KGiI", "Marisa's Stage 1", ORIGINAL_TRACK, STAGE_THEME],
+	["Decoration Battle ~ Decoration Battle",			new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "ABiZU-VYCKo", "Orange's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Break the Sabbath",								new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "ACpj8Ggoyss", "Stage 2", ORIGINAL_TRACK, STAGE_THEME],
+	["Scarlet Symphony ~ Scarlet Phoneme",				new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "kQqp-WqVHyA", "Kurumi's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Bad Apple!!",										new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "3kXx6f7qaa8", "Stage 3", ORIGINAL_TRACK, STAGE_THEME],
+	["Spirit Battle ~ Perdition crisis",				new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "0MrCXNJDfGw", "Elly's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Alice Maestra",									new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "rS6JkYfgeQs", "Stage 4", ORIGINAL_TRACK, STAGE_THEME],
+	["Maiden's Capriccio' ~ Capriccio",					new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "IdAyCWh0238", "Reimu's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Vessel of Stars ~ Casket of Star",				new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "zLzTvn4U014", "Marisa's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Lotus Love",										new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "7FZUFe80v7Q", "Stage 5", ORIGINAL_TRACK, STAGE_THEME],
+	["Sleeping Terror ~ Sleeping Terror",				new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "llO4PINy2e8", "Yuuka's 1st theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Dream Land",										new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "4_vq5KOjgdw", "Final Stage", ORIGINAL_TRACK, STAGE_THEME],
+	["Faint Dream ~ Inanimate Dream",					new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "C4gaWY5THh4", "Yuuka's 2nd theme", ORIGINAL_TRACK, BOSS_THEME],
+	["The Inevitably Forbidden Game",					new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "LDgUA5kh8H0", "Extra Stage", ORIGINAL_TRACK, STAGE_THEME],
+	["Illusion of a Maid ~ Icemilk Magic",				new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "Fluu5GOfy68", "Mugetsu's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Cute Devil ~ Innocence",							new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "yaGqzG2Ydro", "Gengetsu's theme", ORIGINAL_TRACK, BOSS_THEME],
+	["Days",											new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "OFlOGKYCaUQ", "Bad Ending", ORIGINAL_TRACK, OTHER_THEME],
+	["Peaceful",										new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "ukvQjvb2_fE", "Good Ending", ORIGINAL_TRACK, OTHER_THEME],
+	["Arcadian Dream",									new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "Eoo-W-wWHUQ", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
+	["Those Who Live in Illusions",						new Set([TITLE.MEGAMIX, TITLE.AUS1]), { title: "MEGAMIX", }, "Cq3B3M5PoZk", "Name Registration", ORIGINAL_TRACK, OTHER_THEME],
 	["Lotus Road",										new Set([TITLE.AUS1]), { title: "AUS1", }, "mQAYk7ubjdY", "Track 23 (Unused theme)", ORIGINAL_TRACK, OTHER_THEME],
 	["Dreamy pilot",									new Set([TITLE.AUS1]), { title: "AUS1", }, "DFk-OMchOgg", "Track 24 (Unused theme)", ORIGINAL_TRACK, OTHER_THEME],
 	["Incomplete Plot",									new Set([TITLE.AUS1]), { title: "AUS1", }, "-69Dm1GKbqo", "Track 25 (Unused theme)", ORIGINAL_TRACK, OTHER_THEME],
@@ -328,7 +338,7 @@ var ary_SongData = [
 	["Septette for a Dead Princess",							new Set([TITLE.IaMP]), { title: "IaMP", }, "yQb_jp3K-xs", "Lobby in Scarlet Devil Mansion", ARRANGED_TRACK, STAGE_AND_BOSS_THEME],
 	["Bloom Nobly, Ink-Black Cherry Blossom ~ Border of Life",	new Set([TITLE.IaMP]), { title: "IaMP", }, "oVHqgB1eUBk", "Hakugyokurou", ARRANGED_TRACK, STAGE_AND_BOSS_THEME],
 	["Demystify Feast",											new Set([TITLE.IaMP]), { title: "IaMP", }, "-Kugz6N83-w", "Hakurei Shrine (Feast Day)", ORIGINAL_TRACK, STAGE_AND_BOSS_THEME],
-	["Night FaMGMX ~ Evening Star",								new Set([TITLE.IaMP]), { title: "IaMP", }, "dPMgCFHQY4g", "Hakurei Shrine (Border)", ORIGINAL_TRACK, STAGE_AND_BOSS_THEME],
+	["Night FaMEGAMIX ~ Evening Star",								new Set([TITLE.IaMP]), { title: "IaMP", }, "dPMgCFHQY4g", "Hakurei Shrine (Border)", ORIGINAL_TRACK, STAGE_AND_BOSS_THEME],
 	["The Fabled Land of Onigashima ~ Missing Power",			new Set([TITLE.IaMP]), { title: "IaMP", }, "pcobOGPSDz4", "Gensokyo", ORIGINAL_TRACK, STAGE_AND_BOSS_THEME],
 	["End of Summer",											new Set([TITLE.IaMP]), { title: "IaMP", }, "3RXBTFN3QNM", "Ending", ORIGINAL_TRACK, OTHER_THEME],
 	["Eastern Forgathering Dream",								new Set([TITLE.IaMP]), { title: "IaMP", }, "04txi6cUbTQ", "Credits", ORIGINAL_TRACK, OTHER_THEME],
@@ -446,7 +456,7 @@ var ary_SongData = [
 	["Locked Girl ~ The Girl's Sealed Room",					new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "7OzrAI66o-4", "Patchouli Knowledge's theme", ARRANGED_TRACK, STAGE_AND_BOSS_THEME],
 	["Bloom Nobly, Ink-Black Cherry Blossom ~ Border of Life",	new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "tlhxImY0WaY", "Yuyuko Saigyouji's theme", ARRANGED_TRACK, STAGE_AND_BOSS_THEME],
 	["Septette for a Dead Princess",							new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "TNkYgXNRQMM", "Remilia Scarlet's theme", ARRANGED_TRACK, STAGE_AND_BOSS_THEME],
-	["Night FaMGMX",												new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "frESbJIQAak", "Yukari Yakumo's theme", ARRANGED_TRACK, STAGE_AND_BOSS_THEME],
+	["Night FaMEGAMIX",												new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "frESbJIQAak", "Yukari Yakumo's theme", ARRANGED_TRACK, STAGE_AND_BOSS_THEME],
 	["Broken Moon",												new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "jXIy17nhPUU", "Suika Ibuki's theme", ARRANGED_TRACK, STAGE_AND_BOSS_THEME],
 	["Lunatic Eyes ~ Invisible Full Moon",						new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "f28Hr59IVyw", "Reisen Udongein Inaba's theme", ARRANGED_TRACK, STAGE_AND_BOSS_THEME],
 	["Wind God Girl",											new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "dkVOs4Rm5HI", "Aya Shameimaru's theme", ARRANGED_TRACK, STAGE_AND_BOSS_THEME],
@@ -472,12 +482,12 @@ var ary_SongData = [
 	["Energy Daybreak ~ Future Dream...",			new Set([TITLE.SA]), { title: "SA", }, "Ruy9z2NsAmo", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
 	//["Player's Score",							new Set([TITLE.MoF, TITLE.SA, TITLE.UFO]), { title: "MoF", }, "7jrqZShXtZw", "", ORIGINAL_TRACK, OTHER_THEME],
 	
-	//RhythmHeaven Hisoutensoku
+	//RhythmGames Hisoutensoku
 	["Did You See that Shadow?",									new Set([TITLE.Soku]), { title: "Soku", }, "CSluXtLcCyM", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
 	["Forgathering Dream",											new Set([TITLE.Soku]), { title: "Soku", }, "-2x22OF5Ukg", "VS Select", ARRANGED_TRACK, OTHER_THEME],
 	["The Legendary Titan",											new Set([TITLE.Soku]), { title: "Soku", }, "WOkTovDr2bg", "Pre-Battle", ORIGINAL_TRACK, OTHER_THEME],
 	["Our Hisoutensoku",											new Set([TITLE.Soku]), { title: "Soku", }, "T81sNW5X2c4", "Pre-Battle", ORIGINAL_TRACK, OTHER_THEME],
-	["Scenery with DoMGMX",											new Set([TITLE.Soku]), { title: "Soku", }, "8ojaEhrOV74", "Pre-Battle", ORIGINAL_TRACK, OTHER_THEME],
+	["Scenery with DoMEGAMIX",											new Set([TITLE.Soku]), { title: "Soku", }, "8ojaEhrOV74", "Pre-Battle", ORIGINAL_TRACK, OTHER_THEME],
 	["The Eternal Steam Engine",									new Set([TITLE.Soku]), { title: "Soku", }, "ZjG7vogWRJQ", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
 	["Faith Is for the Transient People",							new Set([TITLE.Soku]), { title: "Soku", }, "LlN943QPSQw", "Sanae Kochiya's theme", ARRANGED_TRACK, STAGE_AND_BOSS_THEME],
 	["Tomboyish Girl in Love",										new Set([TITLE.Soku]), { title: "Soku", }, "WnVltopWrfY", "Cirno's theme", ARRANGED_TRACK, STAGE_AND_BOSS_THEME],
@@ -517,7 +527,7 @@ var ary_SongData = [
 	//["Locked Girl ~ The Girl's Sealed Room",						new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "7OzrAI66o-4", "", ORIGINAL_TRACK, OTHER_THEME],
 	//["Bloom Nobly, Ink-Black Cherry Blossom ~ Border of Life",	new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "tlhxImY0WaY", "", ORIGINAL_TRACK, OTHER_THEME],
 	//["Septette for a Dead Princess",								new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "TNkYgXNRQMM", "", ORIGINAL_TRACK, OTHER_THEME],
-	//["Night FaMGMX",												new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "frESbJIQAak", "", ORIGINAL_TRACK, OTHER_THEME],
+	//["Night FaMEGAMIX",												new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "frESbJIQAak", "", ORIGINAL_TRACK, OTHER_THEME],
 	//["Broken Moon",												new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "jXIy17nhPUU", "", ORIGINAL_TRACK, OTHER_THEME],
 	//["Lunatic Eyes ~ Invisible Full Moon",						new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "f28Hr59IVyw", "", ORIGINAL_TRACK, OTHER_THEME],
 	//["Wind God Girl",												new Set([TITLE.SWR, TITLE.Soku]), { title: "SWR", }, "dkVOs4Rm5HI", "", ORIGINAL_TRACK, OTHER_THEME],
@@ -638,7 +648,7 @@ var ary_SongData = [
 	//["Reverse Ideology",							new Set([TITLE.DDC, TITLE.ISC]), { title: "DDC", }, "hYcb854qGx0", "", ORIGINAL_TRACK, OTHER_THEME],
 	//["Youkai Mountain ~ Mysterious Mountain",		new Set([TITLE.MoF, TITLE.ISC]), { title: "MoF", }, "b5fNem6GvYA", "", ORIGINAL_TRACK, OTHER_THEME],
 	
-	//DoMGMX in Pseudo Paradise
+	//DoMEGAMIX in Pseudo Paradise
 	["Legend of Hourai",										new Set([TITLE.DiPP]), { title: "DiPP", }, "FgyIpysqOxE", "Track 1", ORIGINAL_TRACK, OTHER_THEME],
 	["Dichromatic Lotus Butterfly ~ Red and White",				new Set([TITLE.DiPP]), { title: "DiPP", }, "3bS0Y2if3wU", "Track 2", ORIGINAL_TRACK, OTHER_THEME],
 	["Lovely Mound of Cherry Blossoms ~ Japanese Flower",		new Set([TITLE.DiPP]), { title: "DiPP", }, "-lWg0EIkP3w", "Track 3", ARRANGED_TRACK, OTHER_THEME],
@@ -646,7 +656,7 @@ var ary_SongData = [
 	["Eastern Tale of Fancy",									new Set([TITLE.DiPP]), { title: "DiPP", }, "H_U-h0M7vb0", "Track 5", ARRANGED_TRACK, OTHER_THEME],
 	["Enigmatic Doll",											new Set([TITLE.DiPP]), { title: "DiPP", }, "hOBdSxmvH7k", "Track 6", ARRANGED_TRACK, OTHER_THEME],
 	["Circus Reverie",											new Set([TITLE.DiPP]), { title: "DiPP", }, "YP50vp-M8_Y", "Track 7", ARRANGED_TRACK, OTHER_THEME],
-	["Forest of DoMGMX",											new Set([TITLE.DiPP]), { title: "DiPP", }, "A2wo_6E6-lc", "Track 8", ORIGINAL_TRACK, OTHER_THEME],
+	["Forest of DoMEGAMIX",											new Set([TITLE.DiPP]), { title: "DiPP", }, "A2wo_6E6-lc", "Track 8", ORIGINAL_TRACK, OTHER_THEME],
 	["Witch of Love Potion",									new Set([TITLE.DiPP]), { title: "DiPP", }, "UkZCGQpy4FU", "Track 9", ORIGINAL_TRACK, OTHER_THEME],
 	["Reincarnation",											new Set([TITLE.DiPP]), { title: "DiPP", }, "93_bnOj63xs", "Track 10", ARRANGED_TRACK, OTHER_THEME],
 	["U.N. Owen was Her?",										new Set([TITLE.DiPP]), { title: "DiPP", }, "c3bWWBMjSQY", "Track 11", ARRANGED_TRACK, OTHER_THEME],
@@ -673,7 +683,7 @@ var ary_SongData = [
 	["Voyage 1969",													new Set([TITLE.CoSD]), { title: "CoSD", }, "-2PxNHB9F40", "Track 4", ARRANGED_TRACK, OTHER_THEME],
 	["Boys and Girls of the Age of Science",						new Set([TITLE.CoSD]), { title: "CoSD", }, "hZPjFipvrhg", "Track 5", ORIGINAL_TRACK, OTHER_THEME],
 	["Retribution for the Eternal Night ~ Imperishable Night",		new Set([TITLE.CoSD]), { title: "CoSD", }, "edryhKpcWVQ", "Track 6", ARRANGED_TRACK, OTHER_THEME],
-	["Night FaMGMX ~ Evening Star",									new Set([TITLE.CoSD]), { title: "CoSD", }, "Ty2wQU3PEoo", "Track 7", ARRANGED_TRACK, OTHER_THEME],
+	["Night FaMEGAMIX ~ Evening Star",									new Set([TITLE.CoSD]), { title: "CoSD", }, "Ty2wQU3PEoo", "Track 7", ARRANGED_TRACK, OTHER_THEME],
 	["Doll Judgment ~ The Girl who Played with People's Shapes",	new Set([TITLE.CoSD]), { title: "CoSD", }, "RdCirj77axM", "Track 8", ARRANGED_TRACK, OTHER_THEME],
 	["Border Between Dreams and Reality",							new Set([TITLE.CoSD]), { title: "CoSD", }, "UvXMicfIr8Q", "Track 9", ORIGINAL_TRACK, OTHER_THEME],
 	["Fantasy Machine ~ Phantom Factory",							new Set([TITLE.CoSD]), { title: "CoSD", }, "BRBEWWPzQiM", "Track 10", ARRANGED_TRACK, OTHER_THEME],
@@ -770,12 +780,12 @@ var ary_SongData = [
 	["Humans and Youkai Traversing the Canal",		new Set([TITLE.BONUS]), { title: "BONUS", extra: "FS", }, "m3S9Nsd1puU", "Track 2", ARRANGED_TRACK, OTHER_THEME],
 	["The Rabbit Has Landed",						new Set([TITLE.BONUS]), { title: "BONUS", extra: "FS", }, "mxlnkzshWCU", "Track 3", ARRANGED_TRACK, OTHER_THEME],
 	//Daisakusen
-	["Every Day is Scarlet ~ Folksy RhythmHeaven days.",	new Set([TITLE.BONUS]), { title: "BONUS", extra: "TO", }, "A3g3MgxcVOE", "Track 1", ARRANGED_TRACK, OTHER_THEME],
+	["Every Day is Scarlet ~ Folksy RhythmGames days.",	new Set([TITLE.BONUS]), { title: "BONUS", extra: "TO", }, "A3g3MgxcVOE", "Track 1", ARRANGED_TRACK, OTHER_THEME],
 	
 	//Urban Legend in Limbo
 	["Heart-Stirring Urban Legends",						new Set([TITLE.ULiL]), { title: "ULiL", }, "PWhN1akadiQ", "Title/Menu Screen", ORIGINAL_TRACK, OTHER_THEME],
 	["Gensokyo Mystery Discovery",							new Set([TITLE.ULiL]), { title: "ULiL", }, "7TyQzWU6Zz8", "Character Select", ORIGINAL_TRACK, OTHER_THEME],
-	["An Everyday Life with BaMGMX",							new Set([TITLE.ULiL]), { title: "ULiL", }, "z-l-swEawrs", "Pre-Battle", ORIGINAL_TRACK, OTHER_THEME],
+	["An Everyday Life with BaMEGAMIX",							new Set([TITLE.ULiL]), { title: "ULiL", }, "z-l-swEawrs", "Pre-Battle", ORIGINAL_TRACK, OTHER_THEME],
 	["Forms of Manifested Folklore",						new Set([TITLE.ULiL]), { title: "ULiL", }, "ezoTUNAnXsA", "Pre-Battle", ORIGINAL_TRACK, OTHER_THEME],
 	["Arrival of the Winds of the Era",						new Set([TITLE.ULiL]), { title: "ULiL", }, "aM3igpC1I8M", "Pre-Battle", ORIGINAL_TRACK, OTHER_THEME],
 	["The Value is Unrealized",								new Set([TITLE.ULiL]), { title: "ULiL", }, "eiFmW1VgFMQ", "Pre-Battle", ORIGINAL_TRACK, OTHER_THEME],
@@ -862,7 +872,7 @@ var ary_SongData = [
 	["Lunatic Eyes ~ Invisible Full Moon",									new Set([TITLE.AoCF]), { title: "AoCF", }, "HcyOdaKtv70", "Reisen Udongein Inaba's theme", ARRANGED_TRACK, BOSS_THEME],
 	["Eternal Spring Dream",												new Set([TITLE.AoCF]), { title: "AoCF", }, "61smc_jnTuo", "Doremy Sweet's theme", ARRANGED_TRACK, BOSS_THEME],
 	["Catastrophe in Bhavaagra ~ Wonderful Heaven",							new Set([TITLE.AoCF]), { title: "AoCF", }, "UaMtjm7eRmQ", "Tenshi Hinanawi's theme", ARRANGED_TRACK, BOSS_THEME],
-	["Night FaMGMX ~ Evening Star",											new Set([TITLE.AoCF]), { title: "AoCF", }, "Oy7EQzN_QCw", "Yukari Yakumo's theme", ARRANGED_TRACK, BOSS_THEME],
+	["Night FaMEGAMIX ~ Evening Star",											new Set([TITLE.AoCF]), { title: "AoCF", }, "Oy7EQzN_QCw", "Yukari Yakumo's theme", ARRANGED_TRACK, BOSS_THEME],
 	["The Ground's Color is Yellow ~ Primrose",								new Set([TITLE.AoCF]), { title: "AoCF", }, "WCLHBw4Msio", "Hakurei Shrine", ARRANGED_TRACK, BOSS_THEME],
 	["Mushroom Waltz",														new Set([TITLE.AoCF]), { title: "AoCF", }, "GOWUBkJLZaA", "Kourindou", ORIGINAL_TRACK, STAGE_THEME],
 	["The Palanquin Ship Flies in the Sky",									new Set([TITLE.AoCF]), { title: "AoCF", }, "ukz5STDQTjk", "Treasure Ship Above the Clouds", ORIGINAL_TRACK, STAGE_THEME],
@@ -959,7 +969,7 @@ var ary_SongData = [
 	["Returning Home from the Underground",					new Set([TITLE.WBaWC]), { title: "WBaWC", }, "zXiC7YFQngk", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
 	//["Player's Score",									new Set([TITLE.GFW, TITLE.TD, TITLE.DDC, TITLE.LoLK, TITLE.HSiFS, TITLE.WBaWC, TITLE.UM]), { title: "GFW", }, "t3hBNsqiwL8", "", ORIGINAL_TRACK, OTHER_THEME],
 	
-	//RhythmHeaven Gouyoku Ibun
+	//RhythmGames Gouyoku Ibun
 	["Submerged Hell of Sunken Sorrow",							new Set([TITLE.SFW]), { title: "SFW", }, "DfU31yb8eNo", "Title Screen", ORIGINAL_TRACK, OTHER_THEME],
 	["Eastern Strange Tale of Avarice",							new Set([TITLE.SFW]), { title: "SFW", }, "3ScV3OKt0Yk", "Staff Roll", ORIGINAL_TRACK, OTHER_THEME],
 	["Laws of Heaven, Desires of Man",							new Set([TITLE.SFW]), { title: "SFW", }, "DW--G-vGJgY", "Ending", ORIGINAL_TRACK, OTHER_THEME],
