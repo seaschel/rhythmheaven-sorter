@@ -124,5 +124,5 @@ const LEGACY_TRACK_TITLE_ABBREV = 5;
 
 var ary_SongData = [
 	["Flockstep", new Set([TITLE.FEVER, TITLE.MEGAMIX]), { title: "FEVER", "MEGAMIX",}, "3B207i_YzE0", "Stage 5-4 on Wii" ORIGINAL_GAME, RhythmGames],
-	["Moai Doo-Wop", new Set([TITLE.DS]), { title: "DS",}, "3B207i_YzE0", "Stage 2-4 on DS" ORIGINAL_GAME, RhythmGames],
+	["Moai Doo-Wop", new Set([TITLE.DS]), { title: "DS",}, "3B207i_YzE0", "Stage 2-4 on DS" ORIGINAL_GAME, RhythmGames]
 ];
