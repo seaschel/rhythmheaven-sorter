@@ -99,6 +99,7 @@ const TRACK_TYPE = 6;
 	const RhythmGames = 0;
 	const Remixes = 1;
 	const ExtraGames = 2;
+	const ReusedGame = 3;
 
 // Old song data format, for transitioning old save data
 // 2: Image filename
