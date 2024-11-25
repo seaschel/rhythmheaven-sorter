@@ -227,10 +227,10 @@ function init()
 		if (anyIntersection(ary_SongData[i][TRACK_TITLES], selectionSet)) {
 			const correctTrackType = (
 				sortTypes == 0 // Allow everything
-				|| (sortTypes == 1 && ary_SongData[i][TRACK_TYPE] !== OTHER_THEME) // Boss and stage only
-				|| (sortTypes == 2 && ary_SongData[i][TRACK_TYPE] === BOSS_THEME) // Boss only
-				|| (sortTypes == 3 && ary_SongData[i][TRACK_TYPE] === STAGE_THEME) // Stage only
-				|| ary_SongData[i][TRACK_TYPE] === STAGE_AND_BOSS_THEME // Included in all options
+				|| (sortTypes == 1 && ary_SongData[i][TRACK_TYPE] !== ExtraGames) // Boss and stage only
+				|| (sortTypes == 2 && ary_SongData[i][TRACK_TYPE] === Remixes) // Boss only
+				|| (sortTypes == 3 && ary_SongData[i][TRACK_TYPE] === RhythmGames) // Stage only
+				|| ary_SongData[i][TRACK_TYPE] === ReusedGame // Included in all options
 			);
 			const correctArrangementType = arranges || (ary_SongData[i][TRACK_IS_ARRANGEMENT] === ORIGINAL_TRACK);
 
